@@ -1,0 +1,39 @@
+# build: docker build -t docker.repository/user/orion:2.0.1-dev -f dockerfiles/Dockerfile.dev .
+# run: docker run -it --name orion-dev --gpus all --ipc=host -p 8000:8000 -v `pwd`:/workspace docker.repository/user/orion:2.0.0-dev
+# docker run -d --rm --name orion-train --gpus all --ipc=host -v /data01/backend:/workspace -v /data01/dataset:/workspace/dataset docker.repository/user/orion:2.1.0-dev python train.py --date 230821
+
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel 
+
+
+WORKDIR /workspace
+
+# # apt install necessary packages
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update \
+    && apt-get install -yq software-properties-common libgl1-mesa-glx wget build-essential libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev
+
+RUN apt-get update && apt-get install -y git
+
+# # install detrex
+COPY detrex detrex
+WORKDIR /workspace/detrex
+RUN pip install -e detectron2
+RUN pip install -e .
+
+
+WORKDIR /workspace
+
+# # pip install
+# COPY requirements.txt .
+# RUN pip install --upgrade pip && pip install pip-tools \
+#     && pip-sync
+
+# install additional 
+RUN pip install jupyter fairscale \ 
+    && pip install timm==0.6.13 \
+    && pip install pandas \
+    && pip install openpyxl \
+    && pip install einops
+    
+
+# CMD ["/bin/bash"]

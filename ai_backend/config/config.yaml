@@ -1,0 +1,77 @@
+# 오리온 mssql 서버 접속 정보(__init__.py 의 getMsDboDbConn 함수에서 사용)
+database:
+    # dbo db 접속 정보
+    mssql_dbo_host : '10.13.1.61'
+    mssql_dbo_port : 1433
+    mssql_dbo_user : 'aithe'
+    mssql_dbo_password : 'new!0822'
+    mssql_dbo_db : 'commdb'
+
+    # sodadm db 접속정보
+    mssql_sod_host : '10.16.1.224'
+    mssql_sod_port : 1433
+    mssql_sod_user : 'soduser'
+    mssql_sod_password : 'orion!20231212'
+    mssql_sod_db : 'soddb'
+
+    # local db 접속정보
+    mssql_sod_host : '192.168.0.85'
+    mssql_sod_port : 11433
+    mssql_sod_user : 'interminds'
+    mssql_sod_password : 'ntflow'
+    mssql_sod_db : 'cspace_test'
+
+
+
+# 파일경로 관련 정보(주로 api_request.py에 사용)
+filepath:
+    # 매대인식 화면에서 이미지 추가 시 저장되는 경로
+    temporary_save_path : '/sod/upload/'
+
+    # 추가학습 화면에서 데이터 추가 시 사용되는 경로
+    training_save_base_path : '/sod/dataset/base'
+    training_save_images_path : '/sod/dataset/images'
+    training_save_annotations_path : '/sod/dataset/base/annotations'
+
+    # 추가학습 화면에서 데이터 추가 시 사용되는 경로(이 경로에 임시로 저장하고 위의 base 경로의 파일을 지운 후 base 경로로 파일명을 변경)
+    training_save_add_path : '/sod/dataset/add/'
+    training_save_images_add_path : '/sod/dataset/add/images/'
+    training_save_annotations_add_path : '/sod/dataset/add/annotations/'
+
+    # 추가학습 화면에서 학습시작 시 현재 진행도를 표시하기 위해 읽어오는 text 파일 경로
+    training_log_path : '/sod/ai_backend/output/timer/'
+
+    # 추가학습 화면에서 현재 학습이 진행중인지 판단하기위해 읽어오는 json 파일 경로
+    training_start_json_path : '/sod/frontend/training_start_time.json'
+
+    #매대인식 이미지 저장 경로 - inference에 사용할 이미지 경로
+    new_shelf_img_root_path : '/sod/upload/{acc_code}_{cus_code}/{film_dt}'
+
+    #레퍼런스 이미지 저장 경로(제품의 실제 이미지)
+    reference_img_path : '/sod/ref_img/'
+
+    #인퍼런스 결과 저장 경로 
+    inference_result_path : '/sod/inference_result/{film_dt}/{acc_code}_{cus_code}'
+    # file_dt : 촬영날짜.. 
+
+    #(detection) Active Learning - Det 결과에 따라서 저장될 경로. 
+    inference_det_result_confirmed_path: /inference_result/tr_set_det/confirmed/{date}/{seq_fn}.json
+    inference_det_result_need_to_check_path: /inference_result/tr_set_det/need_to_check/{date}/{seq_fn}.json
+
+    #(classification) Active Learning - Classification 결과에 따라서 저장될 경로. 
+    inference_cls_result_need_to_check_json_path: /inference_result/tr_set_cls/need_to_check/{date}/{sku_id}.json
+    inference_cls_result_need_to_check_jpg_path: /inference_result/tr_set_cls/need_to_check/{date}/{sku_id}.jpg
+
+    inference_cls_result_confirmed_json_path: /inference_result/tr_set_cls/confirmed/{date}/{sku_id}.json
+    inference_cls_result_confirmed_jpg_path: /inference_result/tr_set_cls/confirmed/{date}/{sku_id}.jpg
+
+    reports_path : /sod/reports
+
+
+
+
+# 서버 설정 관련 정보(주로 __init__.py 에서 사용)
+server:
+    # flask의 로그파일 저장 경로
+    log_file_path : '/sod/frontend/logs/logfile'
+

@@ -1,0 +1,149 @@
+version: '3.8'
+
+services:
+  # detection-train:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfiles/Dockerfile.detection-train
+  #   container_name: detection-train
+  #   ports:
+  #     - "8003:8003"
+  #   environment:
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #   volumes:
+  #     - /home/jukyung/sod/ai_backend:/workspace/ai_backend
+  #     - /home/jukyung/sod/upload:/workspace/upload
+  #     - /home/jukyung/sod/inference_result:/workspace/inference_result
+  #     # /home/jukyung/sod/ai_backend
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - capabilities: [gpu]
+
+  # classification-train:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfiles/Dockerfile.classification-train
+  #   container_name: classification-train
+  #   ports:
+  #     - "8002:8002"
+  #   environment:
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #   volumes:
+  #     - /home/jukyung/sod/ai_backend:/workspace/ai_backend
+  #     - /home/jukyung/sod/upload:/workspace/upload
+  #     - /home/jukyung/sod/inference_result:/workspace/inference_result
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - capabilities: [gpu]
+
+  # shelf-recognition:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfiles/Dockerfile.shelf-recognition
+  #   container_name: shelf-recognition
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - NVIDIA_VISIBLE_DEVICES=all
+  #     - DB_HOST=10.16.1.224
+  #     - DB_PORT=1433
+  #     - DB_USER=soduser
+  #     - DB_PASS=orion!20231212
+  #     - DB_NAME=soddb
+  #   volumes:
+  #     - /home/jukyung/sod/ai_backend:/workspace/ai_backend
+  #     - /home/jukyung/sod/upload:/workspace/upload
+  #     - /home/jukyung/sod/inference_result:/workspace/inference_result
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - capabilities: [gpu]
+  #   tty: true
+  #   stdin_open: true
+
+  test-dev:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.test-dev
+    container_name: test-dev
+    ports:
+      - "3003:3003"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DB_HOST=10.16.1.224
+      - DB_PORT=1433
+      - DB_USER=soduser
+      - DB_PASS=orion!20231212
+      - DB_NAME=soddb
+
+      # - NVIDIA_VISIBLE_DEVICES=all
+      # - DB_HOST=192.168.0.85 #test용 db
+      # - DB_PORT=11433
+      # - DB_USER=interminds
+      # - DB_PASS=ntflow
+      # - DB_NAME=cspace_test
+    volumes:
+      - /sod/ai_backend:/workspace/ai_backend
+      - /sod/upload:/workspace/upload
+      - /sod/inference_result:/workspace/inference_result
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    tty: true
+    stdin_open: true
+    # command: python /workspace/ai_backend/test-app.py
+
+
+# networks:
+#   default:
+#     driver: bridge
+
+  test-train:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.test-train
+    container_name: test-train
+    ports:
+      - "3000:3000"
+    environment:
+
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DB_HOST=10.16.1.224
+      - DB_PORT=1433
+      - DB_USER=soduser
+      - DB_PASS=orion!20231212
+      - DB_NAME=soddb
+
+      # - NVIDIA_VISIBLE_DEVICES=all
+      # - DB_HOST=192.168.0.85 #test용 db
+      # - DB_PORT=11433
+      # - DB_USER=interminds
+      # - DB_PASS=ntflow
+      # - DB_NAME=cspace_test
+
+
+    volumes:
+      - /sod/ai_backend:/workspace/ai_backend
+      - /sod/upload:/workspace/upload
+      - /sod/inference_result:/workspace/inference_result
+      
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    tty: true
+    stdin_open: true
+    # command: python /workspace/ai_backend/test-app.py
+
+
+networks:
+  default:
+    driver: bridge

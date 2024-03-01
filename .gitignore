@@ -1,0 +1,14 @@
+# 로그 파일
+*.log
+
+# 디렉토리
+tmp/
+dataset/
+ai_backend/dataset
+upload/
+inference_result/
+# 특정 파일
+config.yml
+
+# .env 파일
+.env

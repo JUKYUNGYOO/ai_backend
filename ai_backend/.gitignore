@@ -1,0 +1,16 @@
+# 로그 파일
+*.log
+
+# 디렉토리
+tmp/
+dataset/
+output/
+detrex/
+# 특정 파일
+
+
+# .env 파일
+.env
+
+
+# https://github.com/orion-sod/ai_back.git

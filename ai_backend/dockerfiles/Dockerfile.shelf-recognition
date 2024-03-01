@@ -1,0 +1,55 @@
+# flask api배포 + 학습 및 추론 환경 을 위한 도커파일 
+
+# Base image로 PyTorch 이미지 선택
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
+
+# 작업 디렉토리 설정
+WORKDIR /workspace
+
+# 필요한 패키지 설치를 위한 환경 설정
+ENV DEBIAN_FRONTEND noninteractive
+
+# apt 패키지 업데이트 및 필요한 시스템 패키지 설치
+RUN apt-get update && apt-get install -yq \
+    software-properties-common \
+    libgl1-mesa-glx \
+    wget \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev \
+    git \
+    python3.8 \
+    iputils-ping \
+    python3-pip \
+    curl \
+    openssh-server \
+    net-tools \
+    vim \
+    cron \
+    tzdata \
+    --no-install-recommends apt-utils
+
+# Python3 pip 업그레이드 및 필요한 Python 패키지 설치
+COPY requirements.txt ./
+RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
+
+# 지역 설정 및 시간 설정
+ENV TZ=Asia/Seoul
+ENV LC_ALL=C.UTF-8
+ENV LANGUAGE=ko
+
+# detrex 설치
+COPY detrex /workspace/detrex
+WORKDIR /workspace/detrex
+RUN pip install -e detectron2
+RUN pip install -e .
+
+# 최종 작업 디렉토리 설정
+WORKDIR /workspace
+
+
+# # 추가 Python 패키지 설치
+RUN pip install jupyter fairscale timm==0.6.13 pandas openpyxl einops
