@@ -27,6 +27,20 @@
 - web-back, ai-back, base-model, inference, flask-api server 환경 셋팅 등 모두 포함된 도커 파일임. 
 
 
+## gpu환경
+
+![image](https://github.com/orion-sod/ai_back/assets/155127224/f011d72a-3c69-431f-933a-d83b58088c9e)
+![image](https://github.com/orion-sod/ai_back/assets/155127224/067133d7-5f40-4319-922c-96712f1264df)
+![image](https://github.com/orion-sod/ai_back/assets/155127224/79338d6d-f23e-4518-8e0d-e934020c9928)
+
+## Docker에서 NVIDIA 지원 확인
+- docker run -it --ipc host --gpus all 사용하고자 하는 이미지
+
+## Docker version, Docker compose version
+![image](https://github.com/orion-sod/ai_back/assets/155127224/f243a0e3-9eed-4465-8b8f-630cd4cdcfd9)
+![image](https://github.com/orion-sod/ai_back/assets/155127224/0b70ebe3-65f2-4daa-a353-887b9d7e6f18)
+
+
 <div align="center">
   <img src="./assets/logo_2.png" width="30%">
 </div>
