@@ -28,7 +28,7 @@
 
 
 ## gpu환경
-
+<!--
 ##
 interminds1@SOD04:/sod/ai_backend$ nvidia-smi
 Fri Mar  1 17:41:09 2024       
@@ -65,7 +65,7 @@ Docker Compose version v2.21.0
 
 interminds1@SOD04:/sod/ai_backend$ docker --version
 Docker version 25.0.1, build 29cf629
-
+-->
 
 <div align="center">
   <img src="./assets/logo_2.png" width="30%">
