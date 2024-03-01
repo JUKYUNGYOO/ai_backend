@@ -29,6 +29,7 @@
 
 ## gpu환경
 
+##
 interminds1@SOD04:/sod/ai_backend$ nvidia-smi
 Fri Mar  1 17:41:09 2024       
 +---------------------------------------------------------------------------------------+
@@ -42,7 +43,7 @@ Fri Mar  1 17:41:09 2024
 | N/A   N/A    P8              N/A /  N/A |   5549MiB / 24512MiB |      0%      Default |
 |                                         |                      |             Disabled |
 +-----------------------------------------+----------------------+----------------------+
-
+##
 interminds1@SOD04:/sod/ai_backend$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2023 NVIDIA Corporation
