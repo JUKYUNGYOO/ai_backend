@@ -4,15 +4,15 @@
 
 ## base model git clone and install guide
 - https://detrex.readthedocs.io/en/latest/tutorials/Installation.html
-- cd /ai_backend/
+- cd ai_backend/
 - $ git clone https://github.com/IDEA-Research/detrex.git
-- $ cd /ai_backend/detrex
+- $ cd ai_backend/detrex/
 - $ git submodule init
 - $ git submodule update
 
 
 ## docker compose build 
-- $ cd /ai_backend 
+- $ cd ai_backend/ 
 - $ docker compose build test-dev
 - $ dcker compose up test-dev
 
@@ -20,7 +20,7 @@
 - docker exec -it 254d9db7c507 /bin/bash
 
 ## detrex로 이동 후 base model install 
-- cd /workspace/ai_backend/detrex
+- cd workspace/ai_backend/detrex/
 - $ pip install -e . 
 
 ## ai-backend/dockerfiles/Dockerfile.test-dev
