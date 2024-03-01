@@ -3,7 +3,7 @@
 $ git clone https://github.com/orion-sod/ai_back.git
 
 # base model
-install guild
+install guide
 https://detrex.readthedocs.io/en/latest/tutorials/Installation.html
 
 $ git clone https://github.com/IDEA-Research/detrex.git
