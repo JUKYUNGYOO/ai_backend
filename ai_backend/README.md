@@ -14,7 +14,7 @@
 ## docker compose build 
 - $ cd ai_backend/ 
 - $ docker compose build test-dev
-- $ dcker compose up test-dev
+- $ docker compose up test-dev
 
 - docker start 254d9db7c507(containerID)
 - docker exec -it 254d9db7c507 /bin/bash
