@@ -1,17 +1,15 @@
-## install guide
+## ai_backend git clone
 
 - $ git clone https://github.com/orion-sod/ai_back.git
 
-## base model
-- install guide
+## base model git clone and install guide
 - https://detrex.readthedocs.io/en/latest/tutorials/Installation.html
-
+- cd /ai_backend/
 - $ git clone https://github.com/IDEA-Research/detrex.git
-- $ cd detrex
+- $ cd /ai_backend/detrex
 - $ git submodule init
 - $ git submodule update
 
-- /ai_backend/detrex 위치 시키고
 
 ## docker compose build 
 - $ cd /ai_backend 
@@ -21,10 +19,12 @@
 - docker start 254d9db7c507(containerID)
 - docker exec -it 254d9db7c507 /bin/bash
 
-## detrex로 이동 후 설치. 
+## detrex로 이동 후 base model install 
 - cd /workspace/ai_backend/detrex
 - $ pip install -e . 
 
+## ai-backend/dockerfiles/Dockerfile.test-dev
+- web-back, ai-back, base-model, inference 사용을 위한 환경 셋팅 및 flask-api server 관련 환경 셋팅이 모두 포함된 도커 파일임. 
 
 
 <div align="center">
