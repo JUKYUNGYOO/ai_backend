@@ -29,16 +29,41 @@
 
 ## gpu환경
 
-![image](https://github.com/orion-sod/ai_back/assets/155127224/f011d72a-3c69-431f-933a-d83b58088c9e)
-![image](https://github.com/orion-sod/ai_back/assets/155127224/067133d7-5f40-4319-922c-96712f1264df)
-![image](https://github.com/orion-sod/ai_back/assets/155127224/79338d6d-f23e-4518-8e0d-e934020c9928)
+interminds1@SOD04:/sod/ai_backend$ nvidia-smi
+Fri Mar  1 17:41:09 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.54.03              Driver Version: 535.54.03    CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A10-24Q                 On  | 00000002:00:00.0 Off |                    0 |
+| N/A   N/A    P8              N/A /  N/A |   5549MiB / 24512MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+
+interminds1@SOD04:/sod/ai_backend$ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Tue_Aug_15_22:02:13_PDT_2023
+Cuda compilation tools, release 12.2, V12.2.140
+Build cuda_12.2.r12.2/compiler.33191640_0
+
+interminds1@SOD04:/sod/ai_backend$ apt list --installed | grep nvidia-container-toolkit
+nvidia-container-toolkit-base/unknown,now 1.14.3-1 amd64 [installed,upgradable to: 1.14.5-1]
+nvidia-container-toolkit/unknown,now 1.14.3-1 amd64 [installed,upgradable to: 1.14.5-1]
 
 ## Docker에서 NVIDIA 지원 확인
 - docker run -it --ipc host --gpus all 사용하고자 하는 이미지
 
 ## Docker version, Docker compose version
-![image](https://github.com/orion-sod/ai_back/assets/155127224/f243a0e3-9eed-4465-8b8f-630cd4cdcfd9)
-![image](https://github.com/orion-sod/ai_back/assets/155127224/0b70ebe3-65f2-4daa-a353-887b9d7e6f18)
+
+interminds1@SOD04:/sod/ai_backend$ docker compose version
+Docker Compose version v2.21.0
+
+interminds1@SOD04:/sod/ai_backend$ docker --version
+Docker version 25.0.1, build 29cf629
 
 
 <div align="center">
