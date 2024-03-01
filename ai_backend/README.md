@@ -24,7 +24,7 @@
 - $ pip install -e . 
 
 ## ai-backend/dockerfiles/Dockerfile.test-dev
-- web-back, ai-back, base-model, inference 사용을 위한 환경 셋팅 및 flask-api server 관련 환경 셋팅이 모두 포함된 도커 파일임. 
+- web-back, ai-back, base-model, inference, flask-api server 환경 셋팅 등 모두 포함된 도커 파일임. 
 
 
 <div align="center">
